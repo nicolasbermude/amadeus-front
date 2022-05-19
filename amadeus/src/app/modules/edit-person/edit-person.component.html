@@ -1,0 +1,51 @@
+
+
+<div class="col-10 col-md-8 mx-auto mt-5">
+    <div class="row justify-content-center">
+        <h1>Actualizar Personas</h1>
+    </div>
+      <div class="form-group">
+        <label for="number">Documento</label>
+        <input type="number" class="form-control" [formControl]="number" aria-describedby="number" placeholder="Ingresar el documento">
+        <small *ngIf="number.errors?.required && (number.dirty || number.touched)" class="form-text text-danger">Este campo es obligatorio.</small>
+        <small *ngIf="number.errors?.min" class="form-text text-danger">
+            No cumple con los caracteres minimos.
+        </small>
+        <small *ngIf="number.errors?.max" class="form-text text-danger">
+            No cumple con los caracteres maximos.
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="name">Nombres</label>
+        <input type="text" class="form-control" [formControl]="name" aria-describedby="name" placeholder="Ingresar los nombres">
+        <small *ngIf="name.errors?.required && (name.dirty || name.touched)" class="form-text text-danger">Este campo es obligatorio.</small>
+        <small *ngIf="name.errors?.maxlength" class="form-text text-danger">
+            No cumple con los caracteres maximos.
+        </small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" [formControl]="email" aria-describedby="email" placeholder="Email">
+        <small *ngIf="email.errors?.required && (email.dirty || email.touched)" class="form-text text-danger">Este campo es obligatorio.</small>
+        <small *ngIf="email.errors?.email && (email.dirty || email.touched)" class="form-text text-danger">No cumple con las condiciones de correo.</small>
+        <small *ngIf="email.errors?.maxlength" class="form-text text-danger">No cumple con los caracteres maximos.</small>
+      </div>
+      <div class="form-group">
+        <label for="phone">Celular</label>
+        <input type="text" class="form-control" [formControl]="phone" aria-describedby="phone" placeholder="Ingresar el celular">
+        <small *ngIf="phone.errors?.required && (phone.dirty || phone.touched)" class="form-text text-danger">Este campo es obligatorio.</small>
+        <small *ngIf="phone.errors?.maxlength" class="form-text text-danger">No cumple con los caracteres maximos.</small>
+        <small *ngIf="phone.errors?.minlength" class="form-text text-danger">No cumple con los caracteres minimos.</small>
+      </div>
+      <div class="form-group">
+        <label for="address">Dirección</label>
+        <input type="text" class="form-control" [formControl]="address" aria-describedby="address" placeholder="Ingresar la dirección">
+        <small *ngIf="address.errors?.required && (address.dirty || address.touched)" class="form-text text-danger">Este campo es obligatorio.</small>
+        <small *ngIf="address.errors?.maxlength" class="form-text text-danger">
+            No cumple con los caracteres maximos.
+        </small>
+      </div>
+      <hr>
+      <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary" [disabled]="mechForm.invalid" (click)="editar()">Guardar</button>
+      </div>
